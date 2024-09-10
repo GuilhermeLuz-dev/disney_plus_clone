@@ -1,0 +1,12 @@
+$cor_fundo: #000000;
+$cor_texto: #00f7;
+$font_title: 'coursive';
+
+body {
+    background-color: $cor_fundo;
+
+}
+h2 {
+    font-family: $font_title;
+    color: $cor_texto;
+}
