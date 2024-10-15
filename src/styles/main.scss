@@ -1,12 +1,67 @@
-$cor_fundo: #000000;
-$cor_texto: #00f7;
-$font_title: 'coursive';
+@use "variaveis";
+@use "hero";
+
+
+@font-face {
+    font-family: Avenir;
+    src: url("../../assets/fonts/Avenir-Regular.woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Avenir;
+    src: url("../../assets/fonts/Avenir-Bold.woff2");
+    font-weight: 700;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 body {
-    background-color: $cor_fundo;
-
+    background-color: variaveis.$cor_fundo;
+    font-family: Avenir, sans-serif;
 }
-h2 {
-    font-family: $font_title;
-    color: $cor_texto;
+
+@mixin text($font_size: 16px) {
+    font-size: $font_size;
+    line-height: $font_size + 10;
+    color: variaveis.$cor_texto;
+}
+
+@mixin title($font_size: 28px) {
+    @include text($font_size);
+    color: variaveis.$cor_title;
+}
+
+.link--text {
+    @include text(18px);
+    text-decoration: none;
+    color: variaveis.$cor_title;
+}
+
+.text--big {
+    @include text(18px);
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px);
+}
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title(40px);
+}
+
+.title--small {
+    @include title(24px);
 }
