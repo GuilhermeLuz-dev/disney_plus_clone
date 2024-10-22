@@ -19,7 +19,7 @@ function buildStyles() {
 function imageMin() {
     return gulp.src("./src/images/**/*")
         .pipe(imagemin())
-        .pipe(gulp.dest("/dist/images"));
+        .pipe(gulp.dest("./dist/images"));
 }
 
 
