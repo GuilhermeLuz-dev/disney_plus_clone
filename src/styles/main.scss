@@ -2,7 +2,10 @@
 @use "hero";
 @use "shows";
 @use "plans";
-
+@use "available-devices";
+@use "faq";
+@use "footer";
+@use "header";
 
 @font-face {
     font-family: Avenir;
@@ -47,40 +50,144 @@ body {
 
 .text--big {
     @include text(18px);
+    @media screen and (max-width: 768px) {
+        @include text(15px);
+    }
 }
 
 .text {
     @include text;
+    @media screen and (max-width: 768px) {
+        @include text(14px);
+    }
 }
 
 .text--small {
     @include text(12px);
+    @media screen and (max-width: 768px) {
+        @include text(11px);
+    }
 }
 
 .title--big {
     @include title(44px);
+    @media screen and (max-width: 768px) {
+        @include title(26px);
+    }
+
 }
 
 .title {
     @include title(40px);
+
+    @media screen and (max-width: 768px) {
+        @include title(24px);
+    }
 }
 
 .title--small {
     @include title(24px);
+
+    @media screen and (max-width: 768px) {
+        @include title(22px);
+    }
+
 }
 
 
 .button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 50px;
     color: variaveis.$cor_texto;
-    background-color: #6421ff;
+    background-color: variaveis.$cor_botao_primario;
     font-size: 18px;
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
-    margin-top: 2vw;
-    margin-bottom: 8px;
     cursor: pointer;
+    text-decoration: none;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    border: 1px solid variaveis.$cor_botao_primario;
+
+    &:hover {
+        background-color: lighten(variaveis.$cor_botao_primario, 3%);
+    }
+
+
+    &--secundary {
+        background-color: variaveis.$cor_botao_secundario;
+        border-color: variaveis.$cor_botao_secundario ;
+
+        &:hover {
+            background-color: lighten(variaveis.$cor_botao_secundario, 3%);
+        }
+
+    }
+
+    &--dark {
+        background-color: rgba(variaveis.$cor_botao_dark, .7);
+        border-color: variaveis.$cor_title;
+
+        &:hover {
+            background-color: variaveis.$cor_title;
+            color: variaveis.$cor_fundo;
+        }
+    }
+}
+
+.text-image-section {
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    @media screen and (max-width: 768px) {
+        display: block;
+    }
+
+
+    img {
+        max-width: 100%;
+    }
+
+    &__text-container {
+        padding: 0 2vw;
+
+        h2 {
+            margin-bottom: 24px;
+        }
+    }
+
+    &--image-full-width {
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        &__text-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            @media screen and (max-width: 768px) {
+                position: relative;
+                left: 0;
+                width: 100%;
+            }
+
+
+        }
+    }
+
 }
